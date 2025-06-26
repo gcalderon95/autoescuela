@@ -9,6 +9,19 @@
     "astro": "astro"
   },
   "dependencies": {
-    "astro": "^5.10.1"
-  }
+    "@astrojs/react": "^4.3.0",
+    "@tailwindcss/vite": "^4.1.10",
+    "astro": "^5.10.1",
+    "astro-icon": "^1.1.5",
+    "lucide-react": "^0.523.0",
+    "react": "^19.1.0",
+    "react-dom": "^19.1.0",
+    "tailwindcss": "^4.1.10"
+  },
+  "description": "```sh npm create astro@latest -- --template minimal ```",
+  "main": "tailwind-config.js",
+  "devDependencies": {},
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
 }

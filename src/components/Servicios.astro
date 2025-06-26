@@ -1,0 +1,73 @@
+---
+import { getCollection } from 'astro:content';
+const services = await getCollection('services');
+import * as Icons from 'lucide-react';
+
+---
+<section id="servicios" class="py-20 bg-white">
+    <div class="container mx-auto px-4">
+        <div class="text-center mb-16">
+            <h2 class="text-4xl font-bold text-gray-800 mb-4">Nuestros Servicios</h2>
+            <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                Ofrecemos una formación completa y personalizada para que obtengas tu carnet de conducir 
+            o recuperes tus puntos de la manera más eficiente.
+            </p>
+        </div>
+
+        <!--Los cursos -->
+       <div class="grid md:grid-cols-3 gap-8 mb-16">
+  {services.map(({ data }, index) => {
+    const Icon = Icons[data.icon as keyof typeof Icons] ?? (() => <div class="w-8 h-8 bg-gray-300 rounded"></div>);
+    return (
+      <div key={index} class="bg-[#e4fcfc] rounded-xl p-8 hover:shadow-lg transition-shadow">
+        <div class="bg-[#09848A] w-16 h-16 rounded-lg flex items-center justify-center mb-6">
+          <Icon class="h-8 w-8" style={{ color: 'white' }} />
+        </div>
+
+        <h3 class="text-2xl font-bold text-gray-800 mb-3">{data.title}</h3>
+        <p class="text-gray-600 mb-6">{data.description}</p>
+
+        <ul class="space-y-2 mb-6">
+          {data.features.map((feature) => (
+            <li class="flex items-center text-gray-700" key={feature}>
+              <div class="w-2 h-2 bg-[#09848A] rounded-full mr-3"></div>
+              {feature}
+            </li>
+          ))}
+        </ul>
+
+        <div class="flex items-center justify-between">
+          <a href={data.link} class="bg-[#09848A] text-white px-6 py-2 rounded-lg hover:bg-[#06686B] transition-colors">
+            Ver Más
+          </a>
+        </div>
+      </div>
+    );
+  })}
+</div>
+
+
+       
+            <div class="bg-gradient-to-r from-[#51AAAB] to-[#09848A] rounded-2xl p-8 text-white">
+            <div class="grid md:grid-cols-3 gap-8 items-center">
+                <div class="text-center">
+                    <!-- Shield class="h-12 w-12 mx-auto mb-4" />-->
+                    <h4 class="text-xl font-semibold mb-2">Garantía de Calidad</h4>
+                    <p class="text-white-100">Instructores certificados y vehículos en perfecto estado</p>
+                </div>
+                <div class="text-center">
+                    <!-- <Clock class="h-12 w-12 mx-auto mb-4" />-->
+                    <h4 class="text-xl font-semibold mb-2">Horarios Flexibles</h4>
+                    <p class="text-white-100">Adaptamos los horarios a tu disponibilidad</p>
+                </div>
+                <div class="text-center">
+                    <!--<Users class="h-12 w-12 mx-auto mb-4" />-->
+                    <h4 class="text-xl font-semibold mb-2">Atención Personalizada</h4>
+                    <p class="text-white-100">Seguimiento individual de tu progreso</p>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+</section>
