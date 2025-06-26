@@ -5,7 +5,7 @@ const servicesCollection = defineCollection({
         title: z.string(),
         description: z.string(),
         features: z.array(z.string()),
-        price: z.string(),
+        //price: z.string(),
         icon: z.string(),
         link: z.string(),
     }),
